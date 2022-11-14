@@ -1,0 +1,14 @@
+{
+  "name": "omnistream",
+  "version": "1.0.0",
+  "description": "Code Challenge",
+  "main": "src/index.ts",
+  "repository": "git@github.com:huydung1308/omnistream-code-challenge.git",
+  "author": "Dustin Co",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^18.11.9",
+    "ts-node": "^10.9.1",
+    "typescript": "^4.8.4"
+  }
+}
