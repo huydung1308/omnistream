@@ -1,0 +1,12 @@
+id, name, store_id, height, width
+1, tomato-sauce-barilla-reg, store-mainst-1, 30, 10
+2, tomato-sauce-barilla-spicy, store-mainst-2, 35, 11
+3, tomato-sauce-barilla-zest, store-mainst-1, 31, 14
+4, tomato-sauce-barilla-bolognese, store-mainst-2, 40, 17
+5, pickles-grillo's, store-mainst-1, 10, 10
+6, pickles_Dietz, store-mainst-2, 20, 15
+7, pickles_Claussen, store-mainst-1, 15, 10
+8, pickles_Happy-Belly, store-mainst-2, 15, 15
+9, peas-del-monte-small, store-mainst-3, 10, 10
+10, peas-del-monte-medium, store-mainst-3, 30, 30
+11, peas-del-monte-big, store-mainst-3, 50, 50

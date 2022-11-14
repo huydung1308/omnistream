@@ -1,14 +1,27 @@
 {
   "name": "omnistream",
   "version": "1.0.0",
-  "description": "Code Challenge",
-  "main": "src/index.ts",
-  "repository": "git@github.com:huydung1308/omnistream-code-challenge.git",
-  "author": "Dustin Co",
+  "main": "index.js",
+  "repository": "https://github.com/huydung1308/omnistream.git",
+  "author": "huydung123 <dungch.130894@gmail.com>",
   "license": "MIT",
   "devDependencies": {
+    "@types/jsonfile": "^6.1.0",
     "@types/node": "^18.11.9",
+    "@typescript-eslint/eslint-plugin": "^5.42.1",
+    "eslint": "^8.27.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-airbnb-typescript": "^17.0.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "prettier": "^2.7.1",
     "ts-node": "^10.9.1",
+    "tsconfig-paths": "^4.1.0",
     "typescript": "^4.8.4"
+  },
+  "dependencies": {
+    "app-root-path": "^3.1.0",
+    "csv-parse": "^5.3.2",
+    "jsonfile": "^6.1.0"
   }
 }
