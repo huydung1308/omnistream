@@ -1,24 +1,16 @@
-import { path as rootPath } from "app-root-path";
-
 import { getProduct } from "@Models/product";
-import { getShelve } from "@Models/shelves";
-import { StoreInfo } from "@Models/storeInfo.types";
+import { getShelves } from "@Models/shelves";
+import { totalWidthCalculator, maxHeightCalculator } from "@Utils/tools";
 
-const dataPaths = {
-  product: `${rootPath}/data/product.csv`,
-  shelve: `${rootPath}/data/shelf.csv`,
-};
+import { StoreInfo } from "@Models/storeInfo.types";
 
 export const getStoreInfo = async (store_id: string): Promise<StoreInfo> => {
   console.log(`Getting store info with store_id: ${store_id}...`);
-  const products = await getProduct(dataPaths.product, store_id);
-  const shelves = await getShelve(dataPaths.shelve, store_id);
+  const products = await getProduct(store_id);
+  const shelves = await getShelves(store_id);
 
-  const productFiltered = products.filter((p) => p.store_id === store_id);
-  const shelveFiltered = shelves.filter((s) => s.store_id === store_id);
-
-  const numOfProducts = productFiltered.length;
-  const numOfShelves = shelveFiltered.length;
+  const numOfProducts = products.length;
+  const numOfShelves = shelves.length;
 
   const storeInfo = {
     store_id,
@@ -26,21 +18,13 @@ export const getStoreInfo = async (store_id: string): Promise<StoreInfo> => {
       numOfProducts,
       numOfShelves,
       productsPerShelf: numOfProducts / numOfShelves,
-      totalProductWidth: productFiltered
-        .map((product) => product.width)
-        .reduce((a, b) => Number(a) + Number(b), 0),
-      maxProductHeigh: Math.max(
-        ...productFiltered.map((product) => product.height)
-      ),
-      totalShelfWidth: shelveFiltered
-        .map((shelve) => shelve.width)
-        .reduce((a, b) => Number(a) + Number(b), 0),
-      maxShelfHeight: Math.max(
-        ...shelveFiltered.map((product) => product.height)
-      ),
+      totalProductWidth: totalWidthCalculator(products),
+      maxProductHeigh: maxHeightCalculator(products),
+      totalShelfWidth: totalWidthCalculator(shelves),
+      maxShelfHeight: maxHeightCalculator(shelves),
     },
-    product: productFiltered,
-    shelves: shelveFiltered,
+    products: products,
+    shelves: shelves,
   };
   console.log(`Done...`);
   return storeInfo;

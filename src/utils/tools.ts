@@ -3,6 +3,16 @@ import { writeFile } from "jsonfile";
 import { parse } from "csv-parse";
 import { path as rootPath } from "app-root-path";
 
+import { Item } from "./tools.type";
+
+export const totalWidthCalculator = (items: Item[]): number => {
+  return items.map(({ width }) => Number(width)).reduce((a, b) => a + b, 0);
+};
+
+export const maxHeightCalculator = (items: Item[]): number => {
+  return Math.max(...items.map(({ height }) => Number(height)));
+};
+
 export const processFile = async (fileName: string): Promise<any[]> => {
   const records: any = [];
   const parser = fs.createReadStream(fileName).pipe(

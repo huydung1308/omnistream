@@ -1,10 +1,17 @@
+import { path as rootPath } from "app-root-path";
+
 import { Shelve } from "@Models/shelves.types";
 import { processFile } from "@Utils/tools";
 
-export const getShelve = async (
-  productFilePath: string,
-  store_id: string
-): Promise<Shelve[]> => {
-  console.log(`Getting shelves info with store_id: ${store_id}...`);
-  return await processFile(productFilePath);
+const shelvePath = `${rootPath}/data/shelf.csv`;
+
+export const getShelves = async (store_id: string): Promise<Shelve[]> => {
+  let shelves = [];
+  try {
+    shelves = await processFile(shelvePath);
+    return shelves.filter((s) => s.store_id === store_id);
+  } catch (error) {
+    console.log(error);
+    return shelves;
+  }
 };

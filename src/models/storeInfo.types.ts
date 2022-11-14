@@ -14,6 +14,6 @@ export interface Stats {
 export interface StoreInfo {
   store_id: string;
   stats: Stats;
-  product: Product[];
+  products: Product[];
   shelves: Shelve[];
 }
