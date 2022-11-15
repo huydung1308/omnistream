@@ -2,7 +2,7 @@
 
 ### Prerequisites
 
-- NodeJS
+- NodeJS: ^v14.19.3
 
 ### To install package dependencies for this project, you need to run:
 
@@ -14,6 +14,12 @@ yarn
 
 ```bash
 yarn export [store-id]
+
+#examples:
+
+yarn export store-mainst-1
+
+yarn export store-mainst-2
 ```
 
 The data CSV file are in folder `$root/data`
